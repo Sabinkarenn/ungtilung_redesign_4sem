@@ -1,0 +1,124 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import Link from "../components/Link.astro";
+import Mig from "../assets/images/mig.png";
+import Facebook from "../assets/images/fb.svg";
+import Linkedin from "../assets/images/linkedin.svg";
+---
+
+<MainLayout title="Titel">
+  <div class="w-full min-h-screen flex">
+    <!-- Billede fastlåst til venstre, men stopper før footeren -->
+    <div class="w-1/2 h-screen sticky top-0 border-r border-black">
+      <img
+        src={Mig.src}
+        alt="Sabina foran en bygning"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Tekstindhold til højre -->
+    <div class="w-1/2 ml-auto p-12 space-y-48">
+      <!-- Hero Section -->
+      <div class="min-h-screen flex flex-col justify-center">
+        <h1
+          class="mt-20 text-2xl md:text-7xl font-extrabold text-red-600 leading-none tracking-tight text-center animate__animated animate__flash"
+        >
+          SABINA KHAN<br />SABINA KHAN<br />SABINA KHAN<br />
+          SABINA KHAN<br />SABINA KHAN
+        </h1>
+
+        <p class="text-lg font-bold mt-6 text-center">MULTIMEDIEDESIGNER</p>
+        <!-- Sociale ikoner -->
+        <div class="gap-3 mt-4 flex justify-center">
+          <a href="https://www.facebook.com/morgenfreeman01/" target="_blank">
+            <img src={Facebook.src} alt="Facebook icon" class="" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sabinakhannielsen/"
+            target="_blank"
+          >
+            <img src={Linkedin.src} alt="Linkedin icon" class="" />
+          </a>
+        </div>
+
+        <!-- Om Mig Section -->
+        <div
+          id="om-mig"
+          class="min-h-screen flex flex-col justify-center text-center"
+        >
+          <h2
+            class="text-6xl font-extrabold text-red-600 mb-6 animate__animated animate__flash"
+          >
+            OM MIG
+          </h2>
+          <div class="scroll-target">
+            <p class="text-xl text-black text-left mt-4 mb-4">
+              Mit navn er Sabina, og jeg bor på Østerbro. Jeg studerer
+              Multimediedesign på KEA, hvor jeg kombinerer min kreativitet med
+              digitalt design og programmering. Tidligere arbejdede jeg som
+              eventkoordinator, da jeg elsker at skabe arrangementer, der samler
+              mennesker. <br />
+              <br /> Min passion for æstetik og funktionalitet førte mig dog i en
+              ny retning, hvor jeg nu designer visuelle og brugervenlige løsninger.
+              Mine venner vil beskrive mig som glad, rolig og karismatisk – og jeg
+              trives med at tage initiativ og bygge stærke fællesskaber.
+            </p>
+          </div>
+        </div>
+
+        <!-- Designstil Section -->
+        <div
+          id="designstil"
+          class="min-h-screen flex flex-col justify-center text-center"
+        >
+          <h2
+            class="text-6xl font-extrabold text-red-600 mb-6 animate__animated animate__flash"
+          >
+            DESIGNSTIL
+          </h2>
+          <div class="scroll-target">
+            <p class="text-xl text-black text-left mt-4 mb-4">
+              Min designstil er en blanding af minimalisme, brutalistisk æstetik
+              og moderne trends. Jeg elsker at holde det simpelt, men altid med
+              et twist, der skaber noget unikt. Rene linjer og funktionalitet er
+              vigtige for mig, men jeg eksperimenterer også med kontraster og
+              uventede detaljer, der giver mit design kant. <br /><br />Jeg
+              stræber efter at skabe visuelle løsninger, der føles både rå og
+              sofistikerede – en balance mellem det upræcise og det gennemførte.
+            </p>
+          </div>
+          <!-- Karrussel -->
+          <div class="relative w-full max-w-lg mx-auto">
+            <img
+              id="carousel"
+              class="w-full h-auto transition-opacity duration-100 opacity-100"
+              src=""
+            />
+          </div>
+
+          <script type="module">
+            const images = [Billede1, Billede2, Billede3];
+
+            let index = 0;
+            const imgElement = document.getElementById("carousel");
+            imgElement.src = images[0]; // Sætter første billede ved start
+
+            function nextImage() {
+              index = (index + 1) % images.length;
+              imgElement.style.opacity = "0"; // Skjuler billedet kort
+
+              setTimeout(() => {
+                imgElement.src = images[index]; // Skifter billede
+                imgElement.style.opacity = "1"; // Viser det nye billede
+              }, 100); // Blink-effekt
+            }
+
+            setInterval(nextImage, 800); // Skifter hvert 0,8 sekund
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

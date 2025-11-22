@@ -1,0 +1,83 @@
+---
+import Button from "./Button.astro";
+import Link from "../components/Link.astro";
+import { useState } from "react";
+---
+
+<header class="bg-white border-b border-black py-4 px-6 lg:px-0 relative z-20">
+  <div class="container mx-auto flex justify-between items-center relative">
+    <!-- Logo -->
+    <div
+      class="absolute left-1 top-1/2 transform -translate-y-1/2 text-red-600 font-bold text-xl"
+    >
+      SK
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="hidden lg:flex flex-1 justify-end items-center space-x-4 font-medium"
+    >
+      <a
+        href="#om-mig"
+        class="scroll-link border-2 border-red-600 px-6 py-2 rounded-full bg-white text-red-600 transition duration-300 hover:bg-red-600 hover:text-white"
+      >
+        Om mig
+      </a>
+      <a
+        href="#designstil"
+        class="scroll-link border-2 border-red-600 px-6 py-2 rounded-full bg-white text-red-600 transition duration-300 hover:bg-red-600 hover:text-white"
+      >
+        Designstil
+      </a>
+      <a
+        href="/cv.pdf"
+        target="_blank"
+        class="bg-red-600 text-white border-2 border-red-600 px-6 py-2 rounded-full font-medium transition duration-300 hover:bg-white hover:text-red-600"
+      >
+        Mit CV
+      </a>
+    </nav>
+
+    <!-- Burger menu til mobil -->
+    <button id="menu-toggle" class="lg:hidden flex flex-col space-y-1">
+      <span class="w-6 h-0.5 bg-black"></span>
+      <span class="w-6 h-0.5 bg-black"></span>
+      <span class="w-6 h-0.5 bg-black"></span>
+    </button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeMenu = document.getElementById("close-menu");
+      const menu = document.getElementById("mobile-menu");
+
+      // Åbner og lukker mobilmenu
+      menuToggle.addEventListener("click", function () {
+        menu.classList.remove("translate-x-full");
+      });
+
+      closeMenu.addEventListener("click", function () {
+        menu.classList.add("translate-x-full");
+      });
+
+      // Smooth scroll funktion
+      document.querySelectorAll(".scroll-link").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href").substring(1);
+          const targetElement = document.querySelector(
+            `#${targetId} .scroll-target`
+          );
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80, // Justerer så header ikke dækker
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    });
+  </script>
+</header>
