@@ -9,8 +9,6 @@
 /* Import Google Fonts */
 
 /* Lokale fonts – korrekt format */
-@font-face {
-}
 
 /* Custom theme tokens */
 @theme {
@@ -33,54 +31,4 @@
   --color-green60: #80b878;
   --color-green80: #5d8c56;
   --color-green100: #3a5f34;
-}
-
-/* Base layer med typografi */
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    h1 {
-      font-family: "";
-    }
-    h2 {
-      font-family: "", sans-serif;
-      @apply;
-    }
-
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    li,
-    a {
-      @apply;
-      font-family: "", sans-serif;
-    }
-
-    /* a til links i header */
-    a {
-      @apply text-base;
-    }
-
-    p {
-      @apply mb-6;
-    }
-    div {
-      font-family: "", sans-serif;
-      @apply;
-    }
-    button {
-      font-family: "", sans-serif;
-      @apply;
-      @apply text-lg;
-    }
-
-    span {
-      @apply;
-    }
-  }
 }
