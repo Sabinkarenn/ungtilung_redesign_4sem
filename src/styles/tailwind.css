@@ -1,26 +1,86 @@
-@import 'tailwindcss';
+/* Import Tailwind */
+@import "tailwindcss";
 
+/* Import plugins */
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
+@plugin "daisyui";
 
+/* Import Google Fonts */
 
-@theme {
-  /* Her tilføjes theme variable // tokens */
+/* Lokale fonts – korrekt format */
+@font-face {
 }
 
+/* Custom theme tokens */
+@theme {
+  --color-primaryblue20: #BDC3FC7;
+  --color-primaryblue40: #7b87fa;
+  --color-primaryblue60: #394df7;
+  --color-primaryblue80: #2632a5;
+  --color-primaryblue100: #131952;
+
+  --color-beige: #fbf5ec;
+
+  --color-orange20: #ffd699;
+  --color-orange40: #ffb366;
+  --color-orange60: #ff8c00;
+  --color-orange80: #cc7000;
+  --color-orange100: #994f00;
+
+  --color-green20: #d6e6cd;
+  --color-green40: #b0d4a0;
+  --color-green60: #80b878;
+  --color-green80: #5d8c56;
+  --color-green100: #3a5f34;
+}
+
+/* Base layer med typografi */
 @layer base {
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    h1 {
+      font-family: "";
+    }
+    h2 {
+      font-family: "", sans-serif;
+      @apply;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    a {
+      @apply;
+      font-family: "", sans-serif;
+    }
+
+    /* a til links i header */
+    a {
+      @apply text-base;
+    }
+
+    p {
+      @apply mb-6;
+    }
+    div {
+      font-family: "", sans-serif;
+      @apply;
+    }
+    button {
+      font-family: "", sans-serif;
+      @apply;
+      @apply text-lg;
+    }
+
+    span {
+      @apply;
+    }
   }
-}
-
-@layer components{
-
-}
-@layer utilities{
-  
 }
